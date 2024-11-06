@@ -1,0 +1,20 @@
+name: churn_predict
+services:
+  streamlit:
+    build:
+      context: .
+      dockerfile: ./docker/streamlit/Dockerfile
+    image: febbyngrni/churn_predict-streamlit
+    container_name: streamlit_frontend
+    depends_on:
+      - api
+    ports:
+      - 8501:8501
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    image: febbyngrni/churn_predict-api
+    container_name: api_backend
+    ports:
+      - 8080:8080
