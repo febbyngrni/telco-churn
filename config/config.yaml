@@ -1,0 +1,201 @@
+# Path related
+dataset_path: 'data/raw/telco_customer_churn.csv'
+dataset_cleaned_path: 'data/processed/cleaned_data.pkl'
+
+train_set_path:
+- 'data/processed/X_train.pkl'
+- 'data/processed/y_train.pkl'
+valid_set_path:
+- 'data/processed/X_valid.pkl'
+- 'data/processed/y_valid.pkl'
+test_set_path:
+- 'data/processed/X_test.pkl'
+- 'data/processed/y_test.pkl'
+data_rus_path:
+- 'data/processed/X_rus.pkl'
+- 'data/processed/y_rus.pkl'
+data_ros_path:
+- 'data/processed/X_ros.pkl'
+- 'data/processed/y_ros.pkl'
+data_sm_path:
+- 'data/processed/X_sm.pkl'
+- 'data/processed/y_sm.pkl'
+valid_feng_set_path:
+- 'data/processed/X_valid_feng.pkl'
+- 'data/processed/y_valid_feng.pkl'
+test_feng_set_path:
+- 'data/processed/X_test_feng.pkl'
+- 'data/processed/y_test_feng.pkl'
+
+ohe_gender_path: 'models/ohe_gender.pkl'
+ohe_senior_citizen_path: 'models/ohe_senior_citizen.pkl'
+ohe_partner_path: 'models/ohe_partner.pkl'
+ohe_dependents_path: 'models/ohe_dependents.pkl'
+ohe_phone_service_path: 'models/ohe_phone_service.pkl'
+ohe_multiple_lines_path: 'models/ohe_multiple_lines.pkl'
+ohe_internet_service_path: 'models/ohe_internet_service.pkl'
+ohe_online_security_path: 'models/ohe_online_security.pkl'
+ohe_online_backup_path: 'models/ohe_online_backup.pkl'
+ohe_device_protection_path: 'models/ohe_device_protection.pkl'
+ohe_tech_support_path: 'models/ohe_tech_support.pkl'
+ohe_streaming_tv_path: 'models/ohe_streaming_tv.pkl'
+ohe_streaming_movies_path: 'models/ohe_streaming_movies.pkl'
+ohe_contract_path: 'models/ohe_contract.pkl'
+ohe_paperless_billing_path: 'models/ohe_paperless_billing.pkl'
+ohe_payment_method_path: 'models/ohe_payment_method.pkl'
+
+le_path: 'models/label_encoder.pkl'
+training_log_path: 'log/training_log.json'
+production_model_path: 'models/production_model.pkl'
+
+
+# Debug related
+print_debug: true
+
+# Columns by data type related
+object_columns:
+- gender
+- senior_citizen
+- partner
+- dependents
+- phone_service
+- multiple_lines
+- internet_service
+- online_security
+- online_backup
+- device_protection
+- tech_support
+- streaming_tv
+- streaming_movies
+- contract
+- paperless_billing
+- payment_method
+- churn
+
+int_columns:
+- tenure_months
+
+float_columns:
+- monthly_charges
+- total_charges
+
+# Predictors and label related
+label: churn
+predictors:
+- tenure_months
+- monthly_charges
+- total_charges
+
+predictors_categorical:
+- gender
+- senior_citizen
+- partner
+- dependents
+- phone_service
+- multiple_lines
+- internet_service
+- online_security
+- online_backup
+- device_protection
+- tech_support
+- streaming_tv
+- streaming_movies
+- contract
+- paperless_billing
+- payment_method
+
+# Range of data related
+range_gender:
+- Female
+- Male
+
+range_senior_citizen:
+- 'Yes'
+- 'No'
+
+range_partner:
+- 'Yes'
+- 'No'
+
+range_dependents:
+- 'Yes'
+- 'No'
+
+range_phone_service:
+- 'Yes'
+- 'No'
+
+range_multiple_lines:
+- 'Yes'
+- 'No'
+- No phone service
+
+range_internet_service:
+- Fiber optic
+- DSL
+- 'No'
+
+range_online_security:
+- 'Yes'
+- 'No'
+- No internet service
+
+range_online_backup:
+- 'Yes'
+- 'No'
+- No internet service
+
+range_device_protection:
+- 'Yes'
+- 'No'
+- No internet service
+
+range_tech_support:
+- 'Yes'
+- 'No'
+- No internet service
+
+range_streaming_tv:
+- 'Yes'
+- 'No'
+- No internet service
+
+range_streaming_movies:
+- 'Yes'
+- 'No'
+- No internet service
+
+range_contract:
+- Two year
+- Month-to-month
+- One year
+
+range_paperless_billing:
+- 'Yes'
+- 'No'
+
+range_payment_method:
+- E-Check
+- M-Check
+- Auto Bank
+- Auto Card
+
+range_churn:
+- 'Yes'
+- 'No'
+
+range_tenure_months:
+- 0
+- 72
+
+range_monthly_charges:
+- 18.25
+- 118.75
+
+range_total_charges:
+- 0
+- 8684.8
+
+# Splitting related
+test_size: 0.3
+valid_size: 0.5
