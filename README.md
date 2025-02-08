@@ -33,15 +33,45 @@ Modeling dilakukan dengan beberapa algoritma, seperti Logistic Regression, KNN, 
 | Logistic Regression   | Oversampling   | 0.714059      |
 | Logistic Regression   | Undersampling  | 0.709756	     |
 | XGBoost               | SMOTE          | 0.706947	     |
-| Random Forest         | Undersampling  | 0.704584	     |
-| Logistic Regression   | SMOTE          | 0.702416      |
-| Random Forest         | SMOTE          | 0.702151      |
-| XGBoost               | Undersampling  | 0.700168      |
-| K-Nearest Neighbors   | Undersampling  | 0.665075      |
-| Decision Tree         | Undersampling  | 0.660932      |	
-| K-Nearest Neighbors   | SMOTE          | 0.654981      |	
-| Decision Tree         | SMOTE          | 0.652504      |	
-| K-Nearest Neighbors   | Oversampling   | 0.647383      |	
-| Decision Tree         | Oversampling   | 0.641981      |
+| etc..         	    |                |               |
 
 XGBoost Oversampling memiliki F1-Score tertinggi sebesar 0.71 dan akurasi sebesar 0.76, menunjukkan bahwa model ini mampu menangkap pola dari data dengan baik dan memberikan prediksi yang paling akurat dibandingkan model lainnya.
+
+Setelah dilakukan hyperparameter tuning, F1-Score meningkat menjadi 0.81, menunjukkan bahwa optimasi parameter mampu meningkatkan performa model dalam mengklasifikasikan pelanggan yang berpotensi churn.
+
+### Evaluation Test Set
+``` 
+    Classification Report Test Set
+    
+                  precision    recall  f1-score   support
+    
+               1       0.51      0.72      0.60       281
+               0       0.88      0.75      0.81       776
+    
+        accuracy                           0.74      1057
+       macro avg       0.69      0.73      0.70      1057
+    weighted avg       0.78      0.74      0.75      1057
+```
+
+- Prediksi Churn:
+    - Model memprediksi churn dengan precision yang cukup rendah (0.51), menunjukkan adanya false positive yang cukup tinggi.
+    - Recall churn cukup baik (0.72), berarti model mampu menangkap sebagian besar pelanggan yang benar-benar churn.
+- Prediksi Non-Churn:
+    - Model memiliki performa lebih baik dengan F1-Score sebesar 0.81.
+    - Terdapat false negative yang cukup banyak, artinya ada pelanggan yang sebenarnya churn tetapi diprediksi sebagai non-churn.
+- Akurasi:
+    - Akurasi pada test set sebesar 0.74, mengalami sedikit penurunan dibandingkan setelah hyperparameter tuning.
+    - Akurasi ini masih sebanding dengan model baseline, menunjukkan bahwa tuning tidak memberikan peningkatan akurasi yang signifikan.
+ 
+## Implementation
+Untuk menjalankan model ini pada streamlit gunakan command ini:
+``` bash
+  streamlit run app.py
+```
+![streamlit](https://github.com/user-attachments/assets/343ff5ce-cb92-4064-afea-9703d2d1fe1c)
+
+## Future Work
+- Threshold Tuning: Menyesuaikan ambang batas prediksi untuk meningkatkan recall tanpa terlalu banyak mengorbankan precision.
+- Fitur Tambahan: Memanfaatkan data perilaku pelanggan dan interaksi layanan untuk meningkatkan akurasi prediksi.
+- Eksplorasi Model Lain: Mencoba algoritma seperti LightGBM atau CatBoost yang mungkin lebih optimal dalam menangani dataset ini.
+- Hyperparameter Tuning Lanjutan: Menggunakan Grid Search atau Random Search untuk menemukan parameter terbaik yang dapat lebih meningkatkan performa model.
